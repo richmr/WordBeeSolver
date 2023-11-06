@@ -64,8 +64,8 @@ def solver(requiredletter: Annotated[str, typer.Argument(
             word = word.strip()
             if checkWord(word, requiredletter, avail_letters_set):
                 if perfectWord(word, requiredletter, avail_letters_set):
-                    found_words.append(f"* {word}")
-                else:
+                    word = f"* {word}"
+                if word not in found_words:
                     found_words.append(word)
             pb.update()
         pb.close()
